@@ -1,4 +1,6 @@
 class Listing < ApplicationRecord
+  mount_uploader :photos, PhotoUploader
+
   # Direct associations
 
   has_many   :bookmarks,

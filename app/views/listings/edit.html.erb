@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/update_listing/<%= @listing.id %>" method="post">
+    <form action="/update_listing/<%= @listing.id %>" method="post" enctype="multipart/form-data">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -41,7 +41,8 @@
           Photos
         </label>
 
-        <input type="text" id="photos" name="photos" placeholder="Photos" class="form-control" value="<%= @listing.photos %>">
+        <%= cl_image_tag(@listing.photos.to_s, :width => 90, :height => 90, :crop => :thumb) %>
+        <input type="file" id="photos" name="photos" class="form-control">
       </div>
 
       <!-- Label and input for description -->

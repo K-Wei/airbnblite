@@ -36,7 +36,7 @@
         <td><%= listingreview.checkin %></td>
         <td><%= listingreview.value %></td>
         <td><%= listingreview.review_content %></td>
-        <td><%= listingreview.photos %></td>
+        <td><img src='<%= listingreview.photos %>' class='img-responsive'></td>
         <td><%= listingreview.guest.user_id %></td>
         <td>
           <a href="/listingreviews/<%= listingreview.id %>" class="btn btn-primary">Show</a>

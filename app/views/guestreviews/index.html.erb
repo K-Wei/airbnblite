@@ -25,7 +25,7 @@
         <td><%= guestreview.overall_rating %></td>
         <td><%= guestreview.booking.listing_id %></td>
         <td><%= guestreview.review_content %></td>
-        <td><%= guestreview.photos %></td>
+        <td><img src='<%= guestreview.photos %>' class='img-responsive'></td>
         <td>
           <a href="/guestreviews/<%= guestreview.id %>" class="btn btn-primary">Show</a>
           <a href="/guestreviews/<%= guestreview.id %>/edit" class="btn btn-warning">Edit</a>
