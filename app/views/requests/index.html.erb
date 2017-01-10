@@ -18,8 +18,20 @@
 
       <% @requests.each do |request| %>
       <tr>
-        <td><%= request.booking.listing_id %></td>
-        <td><%= request.guest.user_id %></td>
+        <td>
+          <% if request.booking.present? %>
+            <a href="/bookings/<%= request.booking.id %>">
+              <%= request.booking.listing_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if request.guest.present? %>
+            <a href="/guests/<%= request.guest.id %>">
+              <%= request.guest.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= request.acceptance %></td>
         <td><%= request.guest_introduction %></td>
         <td>

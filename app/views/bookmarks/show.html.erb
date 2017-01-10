@@ -9,10 +9,22 @@
       <dd><%= @bookmark.bookmark_title %></dd>
 
       <dt>Guest</dt>
-      <dd><%= @bookmark.guest_id %></dd>
+      <dd>
+        <% if @bookmark.guest.present? %>
+          <a href="/guests/<%= @bookmark.guest_id %>">
+            <%= @bookmark.guest.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Listing</dt>
-      <dd><%= @bookmark.listing_id %></dd>
+      <dd>
+        <% if @bookmark.listing.present? %>
+          <a href="/listings/<%= @bookmark.listing_id %>">
+            <%= @bookmark.listing.title %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

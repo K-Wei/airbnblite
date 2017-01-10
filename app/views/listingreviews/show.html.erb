@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Booking</dt>
-      <dd><%= @listingreview.booking_id %></dd>
+      <dd>
+        <% if @listingreview.booking.present? %>
+          <a href="/bookings/<%= @listingreview.booking_id %>">
+            <%= @listingreview.booking.listing_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Listing</dt>
-      <dd><%= @listingreview.listing_id %></dd>
+      <dd>
+        <% if @listingreview.listing.present? %>
+          <a href="/listings/<%= @listingreview.listing_id %>">
+            <%= @listingreview.listing.title %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Review title</dt>
       <dd><%= @listingreview.review_title %></dd>
@@ -39,7 +51,13 @@
       <dd><img src="<%= @listingreview.photos %>" class="img-responsive"></dd>
 
       <dt>Guest</dt>
-      <dd><%= @listingreview.guest_id %></dd>
+      <dd>
+        <% if @listingreview.guest.present? %>
+          <a href="/guests/<%= @listingreview.guest_id %>">
+            <%= @listingreview.guest.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

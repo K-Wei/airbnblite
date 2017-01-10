@@ -46,7 +46,13 @@
       <dd><%= @listing.default_price %></dd>
 
       <dt>Host</dt>
-      <dd><%= @listing.host_id %></dd>
+      <dd>
+        <% if @listing.host.present? %>
+          <a href="/hosts/<%= @listing.host_id %>">
+            <%= @listing.host.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Nights available</dt>
       <dd><%= @listing.nights_available %></dd>

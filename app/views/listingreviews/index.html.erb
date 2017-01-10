@@ -26,8 +26,20 @@
 
       <% @listingreviews.each do |listingreview| %>
       <tr>
-        <td><%= listingreview.booking.listing_id %></td>
-        <td><%= listingreview.listing.title %></td>
+        <td>
+          <% if listingreview.booking.present? %>
+            <a href="/bookings/<%= listingreview.booking.id %>">
+              <%= listingreview.booking.listing_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if listingreview.listing.present? %>
+            <a href="/listings/<%= listingreview.listing.id %>">
+              <%= listingreview.listing.title %>
+            </a>
+          <% end %>
+        </td>
         <td><%= listingreview.review_title %></td>
         <td><%= listingreview.accuracy %></td>
         <td><%= listingreview.communication %></td>
@@ -37,7 +49,13 @@
         <td><%= listingreview.value %></td>
         <td><%= listingreview.review_content %></td>
         <td><img src='<%= listingreview.photos %>' class='img-responsive'></td>
-        <td><%= listingreview.guest.user_id %></td>
+        <td>
+          <% if listingreview.guest.present? %>
+            <a href="/guests/<%= listingreview.guest.id %>">
+              <%= listingreview.guest.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/listingreviews/<%= listingreview.id %>" class="btn btn-primary">Show</a>
           <a href="/listingreviews/<%= listingreview.id %>/edit" class="btn btn-warning">Edit</a>

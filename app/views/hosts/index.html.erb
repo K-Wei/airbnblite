@@ -15,7 +15,13 @@
 
       <% @hosts.each do |host| %>
       <tr>
-        <td><%= host.user.created_at %></td>
+        <td>
+          <% if host.user.present? %>
+            <a href="/users/<%= host.user.id %>">
+              <%= host.user.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/hosts/<%= host.id %>" class="btn btn-primary">Show</a>
           

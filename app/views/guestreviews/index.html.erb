@@ -20,10 +20,28 @@
 
       <% @guestreviews.each do |guestreview| %>
       <tr>
-        <td><%= guestreview.host.user_id %></td>
-        <td><%= guestreview.guest.user_id %></td>
+        <td>
+          <% if guestreview.host.present? %>
+            <a href="/hosts/<%= guestreview.host.id %>">
+              <%= guestreview.host.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if guestreview.guest.present? %>
+            <a href="/guests/<%= guestreview.guest.id %>">
+              <%= guestreview.guest.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= guestreview.overall_rating %></td>
-        <td><%= guestreview.booking.listing_id %></td>
+        <td>
+          <% if guestreview.booking.present? %>
+            <a href="/bookings/<%= guestreview.booking.id %>">
+              <%= guestreview.booking.listing_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= guestreview.review_content %></td>
         <td><img src='<%= guestreview.photos %>' class='img-responsive'></td>
         <td>
