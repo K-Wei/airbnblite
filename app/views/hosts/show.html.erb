@@ -23,3 +23,127 @@
     </div>
   </div>
 </div>
+
+<!-- A Host has many msgsenders -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Msgsenders
+      </li>
+
+      <% @host.msgsenders.each do |msgsender| %>
+        <li class="list-group-item">
+          <a href="/msgsenders/<%= msgsender.id %>">
+            <%= msgsender.host_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/msgsenders/<%= msgsender.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/msgsenders/<%= msgsender.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_msgsender/<%= msgsender.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Host has many msgrecievers -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Msgrecievers
+      </li>
+
+      <% @host.msgrecievers.each do |msgreciever| %>
+        <li class="list-group-item">
+          <a href="/msgrecievers/<%= msgreciever.id %>">
+            <%= msgreciever.host_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/msgrecievers/<%= msgreciever.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/msgrecievers/<%= msgreciever.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_msgreciever/<%= msgreciever.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Host has many listings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Listings
+      </li>
+
+      <% @host.listings.each do |listing| %>
+        <li class="list-group-item">
+          <a href="/listings/<%= listing.id %>">
+            <%= listing.title %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/listings/<%= listing.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/listings/<%= listing.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_listing/<%= listing.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Host has many guestreviews -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Guestreviews
+      </li>
+
+      <% @host.guestreviews.each do |guestreview| %>
+        <li class="list-group-item">
+          <a href="/guestreviews/<%= guestreview.id %>">
+            <%= guestreview.host_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/guestreviews/<%= guestreview.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/guestreviews/<%= guestreview.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_guestreview/<%= guestreview.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
