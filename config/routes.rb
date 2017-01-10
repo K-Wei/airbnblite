@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Listingreview resource:
+  # CREATE
+  get "/listingreviews/new", :controller => "listingreviews", :action => "new"
+  post "/create_listingreview", :controller => "listingreviews", :action => "create"
+
+  # READ
+  get "/listingreviews", :controller => "listingreviews", :action => "index"
+  get "/listingreviews/:id", :controller => "listingreviews", :action => "show"
+
+  # UPDATE
+  get "/listingreviews/:id/edit", :controller => "listingreviews", :action => "edit"
+  post "/update_listingreview/:id", :controller => "listingreviews", :action => "update"
+
+  # DELETE
+  get "/delete_listingreview/:id", :controller => "listingreviews", :action => "destroy"
+  #------------------------------
+
   # Routes for the Request resource:
   # CREATE
   get "/requests/new", :controller => "requests", :action => "new"

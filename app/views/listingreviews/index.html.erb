@@ -1,0 +1,50 @@
+<div class="page-header">
+  <h1>
+    Listingreviews
+    <a href="/listingreviews/new" class="btn btn-lg btn-success">New Listingreview</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Booking</th>
+        <th>Listing</th>
+        <th>Review title</th>
+        <th>Accuracy</th>
+        <th>Communication</th>
+        <th>Cleanliness</th>
+        <th>Location</th>
+        <th>Checkin</th>
+        <th>Value</th>
+        <th>Review content</th>
+        <th>Photos</th>
+        <th>Guest</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @listingreviews.each do |listingreview| %>
+      <tr>
+        <td><%= listingreview.booking_id %></td>
+        <td><%= listingreview.listing_id %></td>
+        <td><%= listingreview.review_title %></td>
+        <td><%= listingreview.accuracy %></td>
+        <td><%= listingreview.communication %></td>
+        <td><%= listingreview.cleanliness %></td>
+        <td><%= listingreview.location %></td>
+        <td><%= listingreview.checkin %></td>
+        <td><%= listingreview.value %></td>
+        <td><%= listingreview.review_content %></td>
+        <td><%= listingreview.photos %></td>
+        <td><%= listingreview.guest_id %></td>
+        <td>
+          <a href="/listingreviews/<%= listingreview.id %>" class="btn btn-primary">Show</a>
+          <a href="/listingreviews/<%= listingreview.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_listingreview/<%= listingreview.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
