@@ -47,8 +47,6 @@ class HostsController < ApplicationController
   def update
     @host = Host.find(params[:id])
 
-    @host.user_id = params[:user_id]
-
     save_status = @host.save
 
     if save_status == true
