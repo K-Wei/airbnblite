@@ -17,7 +17,7 @@
       <% @msgsenders.each do |msgsender| %>
       <tr>
         <td><%= msgsender.host.user_id %></td>
-        <td><%= msgsender.guest_id %></td>
+        <td><%= msgsender.guest.user_id %></td>
         <td>
           <a href="/msgsenders/<%= msgsender.id %>" class="btn btn-primary">Show</a>
           <a href="/msgsenders/<%= msgsender.id %>/edit" class="btn btn-warning">Edit</a>
