@@ -16,6 +16,10 @@ class HostsController < ApplicationController
   end
 
   def show
+    @guestreview = Guestreview.new
+    @listing = Listing.new
+    @msgreciever = Msgreciever.new
+    @msgsender = Msgsender.new
     @host = Host.find(params[:id])
 
     render("hosts/show.html.erb")

@@ -6,6 +6,7 @@ class MsgrecieversController < ApplicationController
   end
 
   def show
+    @message = Message.new
     @msgreciever = Msgreciever.find(params[:id])
 
     render("msgrecievers/show.html.erb")

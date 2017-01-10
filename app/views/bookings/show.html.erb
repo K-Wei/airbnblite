@@ -57,6 +57,46 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_request" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for booking_id -->
+      <input type="hidden" name="booking_id" value="<%= @booking.id %>">
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <%= select_tag(:guest_id, options_from_collection_for_select(Guest.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for acceptance -->
+      <div class="checkbox">
+        <label for="acceptance">
+          <input type="checkbox" id="acceptance" name="acceptance" value="1" <%= "checked" if @request.acceptance %>>
+          Acceptance
+        </label>
+      </div>
+
+      <!-- Label and input for guest_introduction -->
+      <div class="form-group">
+        <label for="guest_introduction" class="control-label">
+          Guest introduction
+        </label>
+
+        <textarea id="guest_introduction" name="guest_introduction" placeholder="Guest introduction" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Request
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

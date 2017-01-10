@@ -6,6 +6,7 @@ class MsgsendersController < ApplicationController
   end
 
   def show
+    @message = Message.new
     @msgsender = Msgsender.find(params[:id])
 
     render("msgsenders/show.html.erb")

@@ -53,6 +53,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_msgsender" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for host_id -->
+      <input type="hidden" name="host_id" value="<%= @host.id %>">
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <%= select_tag(:guest_id, options_from_collection_for_select(Guest.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Msgsender
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -84,6 +107,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_msgreciever" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for host_id -->
+      <input type="hidden" name="host_id" value="<%= @host.id %>">
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <%= select_tag(:guest_id, options_from_collection_for_select(Guest.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Msgreciever
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -115,6 +161,136 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_listing" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for room_or_home -->
+      <div class="checkbox">
+        <label for="room_or_home">
+          <input type="checkbox" id="room_or_home" name="room_or_home" value="1" <%= "checked" if @listing.room_or_home %>>
+          Room or home
+        </label>
+      </div>
+
+      <!-- Label and input for photos -->
+      <div class="form-group">
+        <label for="photos" class="control-label">
+          Photos
+        </label>
+
+        <input type="file" id="photos" name="photos" class="form-control">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for bedrooms -->
+      <div class="form-group">
+        <label for="bedrooms" class="control-label">
+          Bedrooms
+        </label>
+
+        <input type="text" id="bedrooms" name="bedrooms" placeholder="Bedrooms" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for bathrooms -->
+      <div class="form-group">
+        <label for="bathrooms" class="control-label">
+          Bathrooms
+        </label>
+
+        <input type="text" id="bathrooms" name="bathrooms" placeholder="Bathrooms" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for max_occupancy -->
+      <div class="form-group">
+        <label for="max_occupancy" class="control-label">
+          Max occupancy
+        </label>
+
+        <input type="text" id="max_occupancy" name="max_occupancy" placeholder="Max occupancy" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for neighborhood -->
+      <div class="form-group">
+        <label for="neighborhood" class="control-label">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood" name="neighborhood" placeholder="Neighborhood" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for policies -->
+      <div class="form-group">
+        <label for="policies" class="control-label">
+          Policies
+        </label>
+
+        <textarea id="policies" name="policies" placeholder="Policies" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for default_price -->
+      <div class="form-group">
+        <label for="default_price" class="control-label">
+          Default price
+        </label>
+
+        <input type="text" id="default_price" name="default_price" placeholder="Default price" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for host_id -->
+      <input type="hidden" name="host_id" value="<%= @host.id %>">
+
+      <!-- Label and input for nights_available -->
+      <div class="form-group">
+        <label for="nights_available" class="control-label">
+          Nights available
+        </label>
+
+        <input type="text" id="nights_available" name="nights_available" placeholder="Nights available" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Listing
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -146,6 +322,65 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_guestreview" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for host_id -->
+      <input type="hidden" name="host_id" value="<%= @host.id %>">
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <%= select_tag(:guest_id, options_from_collection_for_select(Guest.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for overall_rating -->
+      <div class="form-group">
+        <label for="overall_rating" class="control-label">
+          Overall rating
+        </label>
+
+        <input type="text" id="overall_rating" name="overall_rating" placeholder="Overall rating" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for booking_id -->
+      <div class="form-group">
+        <label for="booking_id" class="control-label">
+          Booking
+        </label>
+
+        <%= select_tag(:booking_id, options_from_collection_for_select(Booking.all, :id, :listing_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for review_content -->
+      <div class="form-group">
+        <label for="review_content" class="control-label">
+          Review content
+        </label>
+
+        <textarea id="review_content" name="review_content" placeholder="Review content" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for photos -->
+      <div class="form-group">
+        <label for="photos" class="control-label">
+          Photos
+        </label>
+
+        <input type="file" id="photos" name="photos" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Guestreview
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

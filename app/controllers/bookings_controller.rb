@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @request = Request.new
     @booking = Booking.find(params[:id])
 
     render("bookings/show.html.erb")
