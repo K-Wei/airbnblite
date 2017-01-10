@@ -33,7 +33,7 @@
           Guest
         </label>
 
-        <input type="text" id="guest_id" name="guest_id" placeholder="Guest" class="form-control" value="<%= @request.guest_id %>">
+        <%= select_tag(:guest_id, options_from_collection_for_select(Guest.all, :id, :user_id, @request.guest_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for acceptance -->
