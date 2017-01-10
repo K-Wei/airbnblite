@@ -19,7 +19,7 @@
       <% @requests.each do |request| %>
       <tr>
         <td><%= request.booking.listing_id %></td>
-        <td><%= request.guest_id %></td>
+        <td><%= request.guest.user_id %></td>
         <td><%= request.acceptance %></td>
         <td><%= request.guest_introduction %></td>
         <td>
