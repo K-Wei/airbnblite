@@ -1,5 +1,7 @@
 ActiveAdmin.register Booking do
 
+ permit_params :listing_id, :guest_id, :optionalunique_price
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
