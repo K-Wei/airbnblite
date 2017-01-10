@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @guestreview.errors.any? %>
+  <% @guestreview.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Guestreview #<%= @guestreview.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_guestreview/<%= @guestreview.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for host_id -->
+      <div class="form-group">
+        <label for="host_id" class="control-label">
+          Host
+        </label>
+
+        <input type="text" id="host_id" name="host_id" placeholder="Host" class="form-control" value="<%= @guestreview.host_id %>">
+      </div>
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <input type="text" id="guest_id" name="guest_id" placeholder="Guest" class="form-control" value="<%= @guestreview.guest_id %>">
+      </div>
+
+      <!-- Label and input for overall_rating -->
+      <div class="form-group">
+        <label for="overall_rating" class="control-label">
+          Overall rating
+        </label>
+
+        <input type="text" id="overall_rating" name="overall_rating" placeholder="Overall rating" class="form-control" value="<%= @guestreview.overall_rating %>">
+      </div>
+
+      <!-- Label and input for booking_id -->
+      <div class="form-group">
+        <label for="booking_id" class="control-label">
+          Booking
+        </label>
+
+        <input type="text" id="booking_id" name="booking_id" placeholder="Booking" class="form-control" value="<%= @guestreview.booking_id %>">
+      </div>
+
+      <!-- Label and input for review_content -->
+      <div class="form-group">
+        <label for="review_content" class="control-label">
+          Review content
+        </label>
+
+        <textarea id="review_content" name="review_content" placeholder="Review content" class="form-control" rows="3"><%= @guestreview.review_content %></textarea>
+      </div>
+
+      <!-- Label and input for photos -->
+      <div class="form-group">
+        <label for="photos" class="control-label">
+          Photos
+        </label>
+
+        <input type="text" id="photos" name="photos" placeholder="Photos" class="form-control" value="<%= @guestreview.photos %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Guestreview
+      </button>
+      or
+      <a href="/guestreviews/<%= @guestreview.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

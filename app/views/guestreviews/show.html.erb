@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Guestreview #<%= @guestreview.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Host</dt>
+      <dd><%= @guestreview.host_id %></dd>
+
+      <dt>Guest</dt>
+      <dd><%= @guestreview.guest_id %></dd>
+
+      <dt>Overall rating</dt>
+      <dd><%= @guestreview.overall_rating %></dd>
+
+      <dt>Booking</dt>
+      <dd><%= @guestreview.booking_id %></dd>
+
+      <dt>Review content</dt>
+      <dd><%= @guestreview.review_content %></dd>
+
+      <dt>Photos</dt>
+      <dd><%= @guestreview.photos %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/guestreviews" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/guestreviews/<%= @guestreview.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_guestreview/<%= @guestreview.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

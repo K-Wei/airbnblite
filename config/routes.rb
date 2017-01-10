@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Guestreview resource:
+  # CREATE
+  get "/guestreviews/new", :controller => "guestreviews", :action => "new"
+  post "/create_guestreview", :controller => "guestreviews", :action => "create"
+
+  # READ
+  get "/guestreviews", :controller => "guestreviews", :action => "index"
+  get "/guestreviews/:id", :controller => "guestreviews", :action => "show"
+
+  # UPDATE
+  get "/guestreviews/:id/edit", :controller => "guestreviews", :action => "edit"
+  post "/update_guestreview/:id", :controller => "guestreviews", :action => "update"
+
+  # DELETE
+  get "/delete_guestreview/:id", :controller => "guestreviews", :action => "destroy"
+  #------------------------------
+
   # Routes for the Msgreciever resource:
   # CREATE
   get "/msgrecievers/new", :controller => "msgrecievers", :action => "new"
