@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @bookmark.errors.any? %>
+  <% @bookmark.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Bookmark #<%= @bookmark.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_bookmark/<%= @bookmark.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for bookmark_title -->
+      <div class="form-group">
+        <label for="bookmark_title" class="control-label">
+          Bookmark title
+        </label>
+
+        <input type="text" id="bookmark_title" name="bookmark_title" placeholder="Bookmark title" class="form-control" value="<%= @bookmark.bookmark_title %>">
+      </div>
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <input type="text" id="guest_id" name="guest_id" placeholder="Guest" class="form-control" value="<%= @bookmark.guest_id %>">
+      </div>
+
+      <!-- Label and input for listing_id -->
+      <div class="form-group">
+        <label for="listing_id" class="control-label">
+          Listing
+        </label>
+
+        <input type="text" id="listing_id" name="listing_id" placeholder="Listing" class="form-control" value="<%= @bookmark.listing_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Bookmark
+      </button>
+      or
+      <a href="/bookmarks/<%= @bookmark.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
