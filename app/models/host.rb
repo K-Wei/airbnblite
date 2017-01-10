@@ -1,6 +1,9 @@
 class Host < ApplicationRecord
   # Direct associations
 
+  has_many   :listings,
+             :dependent => :destroy
+
   has_many   :msgrecievers,
              :dependent => :destroy
 
