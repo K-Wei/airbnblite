@@ -17,7 +17,7 @@
 
       <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.listing_id %></td>
+        <td><%= booking.listing.title %></td>
         <td><%= booking.guest_id %></td>
         <td><%= booking.optionalunique_price %></td>
         <td>
