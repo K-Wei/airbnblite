@@ -17,7 +17,7 @@
       <% @msgrecievers.each do |msgreciever| %>
       <tr>
         <td><%= msgreciever.host.user_id %></td>
-        <td><%= msgreciever.guest_id %></td>
+        <td><%= msgreciever.guest.user_id %></td>
         <td>
           <a href="/msgrecievers/<%= msgreciever.id %>" class="btn btn-primary">Show</a>
           <a href="/msgrecievers/<%= msgreciever.id %>/edit" class="btn btn-warning">Edit</a>
