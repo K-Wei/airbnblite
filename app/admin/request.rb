@@ -1,5 +1,7 @@
 ActiveAdmin.register Request do
 
+ permit_params :booking_id, :guest_id, :acceptance, :guest_introduction
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
