@@ -1,6 +1,7 @@
 class MsgsendersController < ApplicationController
   def index
-    @msgsenders = Msgsender.page(params[:page]).per(10)
+    @q = Msgsender.ransack(params[:q])
+    @msgsenders = @q.result(:distinct => true).includes(:host, :guest, :messages).page(params[:page]).per(10)
 
     render("msgsenders/index.html.erb")
   end

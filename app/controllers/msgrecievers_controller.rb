@@ -1,6 +1,7 @@
 class MsgrecieversController < ApplicationController
   def index
-    @msgrecievers = Msgreciever.page(params[:page]).per(10)
+    @q = Msgreciever.ransack(params[:q])
+    @msgrecievers = @q.result(:distinct => true).includes(:host, :guest, :messages).page(params[:page]).per(10)
 
     render("msgrecievers/index.html.erb")
   end

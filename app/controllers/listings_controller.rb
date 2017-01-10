@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Listing.page(params[:page]).per(10)
+    @q = Listing.ransack(params[:q])
+    @listings = @q.result(:distinct => true).includes(:host, :bookings, :listingreviews, :bookmarks).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@listings.where.not(:address_latitude => nil)) do |listing, marker|
       marker.lat listing.address_latitude
       marker.lng listing.address_longitude

@@ -1,6 +1,7 @@
 class GuestreviewsController < ApplicationController
   def index
-    @guestreviews = Guestreview.page(params[:page]).per(10)
+    @q = Guestreview.ransack(params[:q])
+    @guestreviews = @q.result(:distinct => true).includes(:host, :guest, :booking).page(params[:page]).per(10)
 
     render("guestreviews/index.html.erb")
   end

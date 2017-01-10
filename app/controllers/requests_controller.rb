@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   def index
-    @requests = Request.page(params[:page]).per(10)
+    @q = Request.ransack(params[:q])
+    @requests = @q.result(:distinct => true).includes(:guest, :booking).page(params[:page]).per(10)
 
     render("requests/index.html.erb")
   end
