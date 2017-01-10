@@ -37,7 +37,7 @@
         <td><%= listingreview.value %></td>
         <td><%= listingreview.review_content %></td>
         <td><%= listingreview.photos %></td>
-        <td><%= listingreview.guest_id %></td>
+        <td><%= listingreview.guest.user_id %></td>
         <td>
           <a href="/listingreviews/<%= listingreview.id %>" class="btn btn-primary">Show</a>
           <a href="/listingreviews/<%= listingreview.id %>/edit" class="btn btn-warning">Edit</a>
