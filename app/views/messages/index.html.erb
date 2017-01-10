@@ -18,7 +18,7 @@
       <% @messages.each do |message| %>
       <tr>
         <td><%= message.sender.host_id %></td>
-        <td><%= message.reciever_id %></td>
+        <td><%= message.reciever.host_id %></td>
         <td><%= message.msg_content %></td>
         <td>
           <a href="/messages/<%= message.id %>" class="btn btn-primary">Show</a>
