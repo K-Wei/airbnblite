@@ -24,7 +24,7 @@
           Host
         </label>
 
-        <input type="text" id="host_id" name="host_id" placeholder="Host" class="form-control" value="<%= @msgreciever.host_id %>">
+        <%= select_tag(:host_id, options_from_collection_for_select(Host.all, :id, :user_id, @msgreciever.host_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for guest_id -->
