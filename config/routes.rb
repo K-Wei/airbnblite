@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Guest resource:
+  # CREATE
+  get "/guests/new", :controller => "guests", :action => "new"
+  post "/create_guest", :controller => "guests", :action => "create"
+
+  # READ
+  get "/guests", :controller => "guests", :action => "index"
+  get "/guests/:id", :controller => "guests", :action => "show"
+
+  # UPDATE
+  get "/guests/:id/edit", :controller => "guests", :action => "edit"
+  post "/update_guest/:id", :controller => "guests", :action => "update"
+
+  # DELETE
+  get "/delete_guest/:id", :controller => "guests", :action => "destroy"
+  #------------------------------
+
   # Routes for the Host resource:
   # CREATE
   get "/hosts/new", :controller => "hosts", :action => "new"
