@@ -26,7 +26,7 @@
 
       <% @listingreviews.each do |listingreview| %>
       <tr>
-        <td><%= listingreview.booking_id %></td>
+        <td><%= listingreview.booking.listing_id %></td>
         <td><%= listingreview.listing_id %></td>
         <td><%= listingreview.review_title %></td>
         <td><%= listingreview.accuracy %></td>
