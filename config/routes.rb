@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Msgreciever resource:
+  # CREATE
+  get "/msgrecievers/new", :controller => "msgrecievers", :action => "new"
+  post "/create_msgreciever", :controller => "msgrecievers", :action => "create"
+
+  # READ
+  get "/msgrecievers", :controller => "msgrecievers", :action => "index"
+  get "/msgrecievers/:id", :controller => "msgrecievers", :action => "show"
+
+  # UPDATE
+  get "/msgrecievers/:id/edit", :controller => "msgrecievers", :action => "edit"
+  post "/update_msgreciever/:id", :controller => "msgrecievers", :action => "update"
+
+  # DELETE
+  get "/delete_msgreciever/:id", :controller => "msgrecievers", :action => "destroy"
+  #------------------------------
+
   # Routes for the Msgsender resource:
   # CREATE
   get "/msgsenders/new", :controller => "msgsenders", :action => "new"
