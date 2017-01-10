@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Msgsender resource:
+  # CREATE
+  get "/msgsenders/new", :controller => "msgsenders", :action => "new"
+  post "/create_msgsender", :controller => "msgsenders", :action => "create"
+
+  # READ
+  get "/msgsenders", :controller => "msgsenders", :action => "index"
+  get "/msgsenders/:id", :controller => "msgsenders", :action => "show"
+
+  # UPDATE
+  get "/msgsenders/:id/edit", :controller => "msgsenders", :action => "edit"
+  post "/update_msgsender/:id", :controller => "msgsenders", :action => "update"
+
+  # DELETE
+  get "/delete_msgsender/:id", :controller => "msgsenders", :action => "destroy"
+  #------------------------------
+
   # Routes for the Message resource:
   # CREATE
   get "/messages/new", :controller => "messages", :action => "new"
