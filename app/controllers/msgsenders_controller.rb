@@ -1,6 +1,6 @@
 class MsgsendersController < ApplicationController
   def index
-    @msgsenders = Msgsender.all
+    @msgsenders = Msgsender.page(params[:page]).per(10)
 
     render("msgsenders/index.html.erb")
   end

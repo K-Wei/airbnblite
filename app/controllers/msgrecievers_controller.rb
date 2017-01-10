@@ -1,6 +1,6 @@
 class MsgrecieversController < ApplicationController
   def index
-    @msgrecievers = Msgreciever.all
+    @msgrecievers = Msgreciever.page(params[:page]).per(10)
 
     render("msgrecievers/index.html.erb")
   end

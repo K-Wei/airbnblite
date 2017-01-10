@@ -10,7 +10,7 @@ class HostsController < ApplicationController
   end
 
   def index
-    @hosts = Host.all
+    @hosts = Host.page(params[:page]).per(10)
 
     render("hosts/index.html.erb")
   end
