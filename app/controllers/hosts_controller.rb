@@ -1,4 +1,14 @@
 class HostsController < ApplicationController
+  before_action :current_user_must_be_host_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_host_user
+    host = Host.find(params[:id])
+
+    unless current_user == host.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @hosts = Host.all
 
