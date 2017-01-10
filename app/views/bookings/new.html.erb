@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @booking.errors.any? %>
+  <% @booking.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Booking</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_booking" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for listing_id -->
+      <div class="form-group">
+        <label for="listing_id" class="control-label">
+          Listing
+        </label>
+
+        <input type="text" id="listing_id" name="listing_id" placeholder="Listing" class="form-control" value="<%= @booking.listing_id %>">
+      </div>
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <input type="text" id="guest_id" name="guest_id" placeholder="Guest" class="form-control" value="<%= @booking.guest_id %>">
+      </div>
+
+      <!-- Label and input for optionalunique_price -->
+      <div class="form-group">
+        <label for="optionalunique_price" class="control-label">
+          Optionalunique price
+        </label>
+
+        <input type="text" id="optionalunique_price" name="optionalunique_price" placeholder="Optionalunique price" class="form-control" value="<%= @booking.optionalunique_price %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Booking
+      </button>
+      or
+      <a href="/bookings">Cancel</a>
+    </form>
+  </div>
+</div>
