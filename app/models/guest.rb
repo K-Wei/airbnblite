@@ -1,6 +1,9 @@
 class Guest < ApplicationRecord
   # Direct associations
 
+  has_many   :msgsenders,
+             :dependent => :destroy
+
   has_many   :msgrecievers,
              :dependent => :destroy
 
