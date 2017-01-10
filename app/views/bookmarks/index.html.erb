@@ -19,7 +19,7 @@
       <tr>
         <td><%= bookmark.bookmark_title %></td>
         <td><%= bookmark.guest.user_id %></td>
-        <td><%= bookmark.listing_id %></td>
+        <td><%= bookmark.listing.title %></td>
         <td>
           <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">Show</a>
           <a href="/bookmarks/<%= bookmark.id %>/edit" class="btn btn-warning">Edit</a>
